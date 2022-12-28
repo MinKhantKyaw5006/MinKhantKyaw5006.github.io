@@ -1,0 +1,34 @@
+.product_table {
+    border: 1.5px groove #73b71a;
+}
+
+.product_table th {
+    background-color: #bcf373;
+    color: #4f6f10;
+}
+
+.product_table tbody td {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.product_table tfoot {
+    background-color: #eefbde;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.text_right {
+    text-align: right;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon {
+    width: 1em;
+}

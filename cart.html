@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Product table</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body onload="loadData()">
+    <h1 style="text-align: center; color: rgb(51, 146, 57);">Cart</h1>
+    <span id="myName"></span>
+
+    <div>
+        Product:
+        <select id="products">
+            <option value="IPhone 12 Pro Max">IPhone 12 Pro Max</option>
+            <option value="Vivo V24">Vivo V24</option>
+            <option value="Oppo Reno 8">Oppo Reno 8</option>
+        </select>
+
+        Quantity:
+        <input type="number" id="qty" style="width: 3em;">
+
+        PPU:
+        <input type="number" id="ppu" style="width: 6em;">
+
+        <button onclick="addToCart()" style="background-color: #eefbde;">+ Add</button>
+
+    </div>
+
+    <table  
+        id="productList"
+        class="product_table center">
+
+        <thead>
+            <th style="width: 50%;">Item</th>
+            <th style="width: 15%;">Quantity</th>
+            <th style="width: 20%;">PPU</th>
+            <th style="width: 20%;">Total</th>
+        </thead>
+        <tbody id="productBody">
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text_right">Gross</td>
+                <td class="text_right">
+                    <span id="gross"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text_right">VAT 7%</td>
+                <td class="text_right">
+                    <span id="vat"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text_right">Net</td>
+                <td class="text_right">
+                    <span id="net"></span>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

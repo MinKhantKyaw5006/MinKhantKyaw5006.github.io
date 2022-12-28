@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <title>Lucas Page</title>
+
+    <style>
+        html {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .profile_header {
+            font-size: large;
+            font-family: 'Ubuntu', sans-serif;
+            text-align: center;
+            background-color: #617282;
+            background-image: linear-gradient(to bottom right, #ffffff, #77cbd5, #0a7786);
+            color: #ffffff;
+            padding: 3%;
+            width: 720px;
+        }
+
+        .body_style {
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            color: #3b344f;
+            padding: 3%;
+            width: 400px;
+        }
+
+        h2 {
+            margin-bottom: 5pt;
+        }
+
+        p {
+            margin-top: 0pt;
+        }
+
+        button {
+            background-color: #0a7786;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <div class="profile_header">
+                    <img src="profile.jpg" alt="Lucas Profile Picture" style="width: 190px;
+                        height: 190px;
+                        border-radius: 35%;">
+                    <h2><span id="myName">Lucas Antonio</span></h2>
+                    Computer Science Student <br>
+                </div>
+            </tr>
+            <tr>
+                <td style="background-color: #8ab1f4;
+                    background-image: url('abac.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    filter: blur(0.5px);">
+                    <div class="body_style">
+                        <h2>Assumption University</h2>
+                        <p><b>
+                                Vincent Mary School, Computer Science
+                            </b></p>
+                    </div>
+                </td>
+                <td style="background-color: #8ab1f4;
+                    background-image: url('pro_lang.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    filter: blur(0.5px);">
+                    <div class="body_style">
+                        <h2>Programming Languanges</h2>
+                        <p><b>
+                                Python, Java, Prolog, Sml
+                            </b></p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="button" onclick="ChangeName()">Change Name</button>
+    <script>
+        console.log("Hello, Mr. Tanat");
+        var x = 10;
+        var y = 5;
+        var z = x + y;
+        console.log(z);
+
+        function ChangeName() {
+            // Change the name
+            var span = document.getElementById("myName");
+            span.innerHTML = "Welcome back, Mr. Wick!"
+            console.log("Button Clicked");
+        }
+    </script>
+</body>
+
+</html>
