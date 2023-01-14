@@ -1,49 +1,50 @@
-var products = [];
-var totalDiscount = 0;
-var totalAmount = 0;
-var totalAmountAfterDiscount = 0;
+var products = []; var Discount = 0; var Gross = 0; var AfterDiscount = 0;
 
 $(document).ready(function () {
   console.log("ready!");
-  // load data
   $.ajax({
     url: "products.json",
   }).done(function (data) {
-    //$(this).addClass("done");
+    s
     console.log("DONE", data);
     for (let d in data) {
-      // save the data record into global variable
+
+
       products.push(data[d]);
       let dataStr = `<tr id="row${d}">
-                <td style="width:40px"><img src='image/icondelete.png' class='icon' onclick="deleteProduct(${d})"></td>
-                <td>${parseFloat(data[d].qty)}</td>
-                <td>${data[d].item}</td>
-                <td>${parseFloat(data[d].PricePerUnit).toFixed(2)}</td>
-                <td>${parseFloat(data[d].discount).toFixed(2)}</td>
+                <td style="width:40px"><img src='button.png' class='icon' onclick="deleteProduct(${d})"></td>
+                <td>${parseFloat(data[d].Quantity)}</td>
+                <td>${data[d].Item}</td>
+                <td>${parseFloat(data[d].UnitPrice).toFixed(2)}</td>
+                <td>${parseFloat(data[d].TotalDiscount).toFixed(2)}</td>
                 <td>${parseFloat(
-                  parseFloat(data[d].qty) * parseFloat(data[d].PricePerUnit)
-                ).toFixed(2)}</td>
+        parseFloat(data[d].Quantity) * parseFloat(data[d].UnitPrice)
+      ).toFixed(2)}</td>
                 <td>${parseFloat(
-                  parseFloat(data[d].qty) * parseFloat(data[d].PricePerUnit) -
-                    parseFloat(data[d].discount)
-                ).toFixed(2)}</td>
+        parseFloat(data[d].Quantity) * parseFloat(data[d].UnitPrice) -parseFloat(data[d].discount)
+      ).toFixed(2)}</td>
             </tr>`;
-      $("#data-table tr:last").after(dataStr);
-      totalDiscount = totalDiscount + parseFloat(data[d].discount);
-      $("#totalDiscount").html(totalDiscount.toFixed(2));
-      totalAmount =
-        totalAmount + parseFloat(data[d].qty) * parseFloat(data[d].PricePerUnit);
-      $("#totalAmount").html(totalAmount.toFixed(2));
-      totalAmountAfterDiscount =
-        totalAmountAfterDiscount +
-        parseFloat(
-          parseFloat(data[d].qty) * parseFloat(data[d].PricePerUnit) -
-            parseFloat(data[d].discount)
-        );
-      $("#totalAmountAfterDiscount").html(totalAmountAfterDiscount.toFixed(2));
+      $("#data-table tr:last").after(dataStr);Discount = Discount + parseFloat(data[d].discount);
+      $("#Discount").html(Discount.toFixed(2));Gross = Gross + parseFloat(data[d].Quantity) * parseFloat(data[d].UnitPrice);
+      $("#Gross").html(Gross.toFixed(2));AfterDiscount =AfterDiscount +parseFloat(parseFloat(data[d].Quantity) * parseFloat(data[d].UnitPrice) -parseFloat(data[d].discount));
+      $("#AfterDiscount").html(AfterDiscount.toFixed(2));
     }
   });
 });
+
+//function DeleteProduct(index) {
+//  console.log("Delete " + index)
+//  delete Products[index]
+//
+//  console.log(Products)
+//
+//  var count = $('#data-table tr').length;
+//
+//  while (count > 1) {
+//      document.getElementById("data-table").deleteRow(1);
+//      count--;
+// }
+
 
 $("#clearBtn").click(function () {
   for (let i = 0; i < products.length; i++) {
@@ -51,74 +52,91 @@ $("#clearBtn").click(function () {
     let deletedRow = "#row" + i;
     $(deletedRow).remove();
   }
-  totalDiscount = 0;
-  totalAmount = 0;
-  totalAmountAfterDiscount = 0;
-  $("#totalDiscount").html(totalDiscount.toFixed(2));
-  $("#totalAmount").html(totalAmount.toFixed(2));
-  $("#totalAmountAfterDiscount").html(totalAmountAfterDiscount.toFixed(2));
+  Discount = 0;
+  Gross = 0;
+  AfterDiscount = 0;
+  $("#Discount").html(Discount.toFixed(2));
+  $("#Gross").html(Gross.toFixed(2));
+  $("#AfterDiscount").html(AfterDiscount.toFixed(2));
 });
 
 function deleteProduct(index) {
-  totalDiscount = totalDiscount - parseFloat(products[index].discount);
-  $("#totalDiscount").html(totalDiscount.toFixed(2));
-  totalAmount =
-    totalAmount -
-    parseFloat(products[index].qty) * parseFloat(products[index].PricePerUnit);
-  $("#totalAmount").html(totalAmount.toFixed(2));
-  totalAmountAfterDiscount =
-    totalAmountAfterDiscount -
-    parseFloat(
-      parseFloat(products[index].qty) * parseFloat(products[index].PricePerUnit) -
-        parseFloat(products[index].discount)
+  Discount = Discount - parseFloat(products[index].discount);
+  $("#Discount").html(Discount.toFixed(2));
+  Gross =Gross -parseFloat(products[index].Quantity) * parseFloat(products[index].UnitPrice);
+  $("#Gross").html(Gross.toFixed(2));
+  AfterDiscount =AfterDiscount -parseFloat(parseFloat(products[index].Quantity) * parseFloat(products[index].UnitPrice) -parseFloat(products[index].discount)
     );
-  $("#totalAmountAfterDiscount").html(totalAmountAfterDiscount.toFixed(2));
+  $("#AfterDiscount").html(AfterDiscount.toFixed(2));
   delete products[index]; // Delete element from array
   let deletedRow = "#row" + index;
   $(deletedRow).remove(); //Delete row
 }
 
-function addProduct() {
-  let newProductQty = $("#newProductQty").val();
-  let newProductItem = $("#newProductItem").val();
-  let newProductPPU = $("#newProductPPU").val();
-  let newProductDiscount = $("#newProductDiscount").val();
+//function Addition() {
+//  let newName = (document.getElementById("exampleFormControlInput1")).value
+//  console.log(newName)
+//
+//  let newCustomer = {
+//      name: $('#exampleFormControlInput1').val(),
+//      email: $('#exampleFormControlInput2').val(),
+//      phone: $('#exampleFormControlInput3').val()
+//  }
+//
+//  Products.push(newCustomer)
+//  console.log(Products)
+//
+//  let newData =  `<tr>
+//  <td><img style="width: 1.5em;" src='delete.png' onclick='deleteCustomer("${(Products.length)-1}")'>${newCustomer.name}</td>
+//  <td>${newCustomer.email}</td>
+//  <td>${newCustomer.phone}</td>
+//  </tr>`
+//
+//  $("#data-table tr:last").after(newData)
+//}
+
+function Addition() {
+  let QuantityofItem = $("#QuantityofItem").val();
+  let ProductName = $("#ProductName").val();
+  let UnitPrice = $("#UnitPrice").val();
+  let Promo = $("#Promo").val();
   let newProductAmount = parseFloat(
-    parseFloat(newProductQty) * parseFloat(newProductPPU)
+    parseFloat(QuantityofItem) * parseFloat(UnitPrice)
   ).toFixed(2);
   let amountAfterDiscount = parseFloat(
-    parseFloat(newProductAmount) - parseFloat(newProductDiscount)
+    parseFloat(newProductAmount) - parseFloat(Promo)
   ).toFixed(2);
 
-  let ProductObject = {
-    qty: newProductQty,
-    item: newProductItem,
-    PricePerUnit: newProductPPU,
-    discount: newProductDiscount,
-    amount: newProductAmount,
+  let Device = {
+    Quantity: QuantityofItem,Item: ProductName,UnitPrice: UnitPrice,
+    discount: Promo,amount: newProductAmount,
     amountAfterDiscount: amountAfterDiscount,
   };
 
-  products.push(ProductObject);
+  products.push(Device);
 
   let newProductIndex = products.length - 1;
   let newProduct = products[newProductIndex];
 
   let dataStr = `<tr id="row${newProductIndex}">
+
         <td style="width:40px"><img src='image/icondelete.png' class='icon' onclick="deleteProduct(${newProductIndex})"></td>
-        <td>${parseFloat(newProduct.qty)}</td>
-        <td>${newProduct.item}</td>
-        <td>${parseFloat(newProduct.PricePerUnit).toFixed(2)}</td>
+        <td>${parseFloat(newProduct.Quantity)}</td>
+        <td>${newProduct.Item}</td>
+        <td>${parseFloat(newProduct.UnitPrice).toFixed(2)}</td>
         <td>${parseFloat(newProduct.discount).toFixed(2)}</td>
         <td>${newProduct.amount}</td>
         <td>${newProduct.amountAfterDiscount}</td>
+        
     </tr>`;
   $("#data-table tr:last").after(dataStr);
-  totalDiscount = totalDiscount + parseFloat(newProduct.discount);
-  $("#totalDiscount").html(totalDiscount.toFixed(2));
-  totalAmount = totalAmount + parseFloat(newProduct.amount);
-  $("#totalAmount").html(totalAmount.toFixed(2));
-  totalAmountAfterDiscount =
-    totalAmountAfterDiscount + parseFloat(newProduct.amountAfterDiscount);
-  $("#totalAmountAfterDiscount").html(totalAmountAfterDiscount.toFixed(2));
+  Discount = Discount + parseFloat(newProduct.discount);
+
+  $("#Discount").html(Discount.toFixed(2));
+  Gross = Gross + parseFloat(newProduct.amount);
+  
+  $("#Gross").html(Gross.toFixed(2));
+  AfterDiscount =AfterDiscount + parseFloat(newProduct.amountAfterDiscount);
+
+  $("#AfterDiscount").html(AfterDiscount.toFixed(2));
 }

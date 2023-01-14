@@ -1,20 +1,20 @@
 [
     {
-        "qty": 11,
-        "item":"Fish",
-        "PricePerUnit": 250,
-        "discount": 50
+        "QuantityofItem": 2,
+        "ProductName":"S22 Ultra",
+        "UnitPrice": 47500,
+        "Promo": 5000
     },
     {
-        "qty": 4,
-        "item":"Chicken",
-        "PricePerUnit": 150,
-        "discount": 0.00
+        "QuantityofItem": 1,
+        "ProductName":"Asus Zenbook Pro",
+        "UnitPrice": 185000,
+        "Promo": 20000
     },
     {
-        "qty": 2,
-        "item":"Beef",
-        "PricePerUnit": 450,
-        "discount": 0
+        "QuantityofItem": 4,
+        "ProductName":"Media Fan",
+        "UnitPrice": 450,
+        "Promo": 200
     }
 ]
