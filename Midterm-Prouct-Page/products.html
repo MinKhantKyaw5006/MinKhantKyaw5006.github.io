@@ -2,6 +2,61 @@
 <html lang="en">
 
 <head>
+  <style>
+    #data-table {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #data-table td, #data-table th {
+      border: 1px solid rgb(18, 11, 39);
+      padding: 8px;
+      background-color: #ffffff;
+    }
+    
+    #data-table tr:nth-child(even){background-color: #ffffff;}
+    
+    #data-table tr:hover {background-color: rgb(238, 242, 245);}
+    
+    #data-table th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #52a9f1;
+      color: white;
+    }
+    </style>
+
+  <style>
+    
+    body {
+      background-image: url("paint.png");
+    }
+    </style>
+
+<style>
+  .button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  
+  .buttonclear {background-color: #0a3566; border-radius: 12px;color: white;} /* Blue */
+  .buttonadd {background-color: #0a3566; border-radius: 12px;color: white;} /* Red */ 
+  .buttonclose {background-color: #0a3566; color: black; border-radius: 12px;color: white;} /* Gray */ 
+  .buttonfill {background-color: #0a3566; border-radius: 12px;color: white;} /* Black */
+  </style>
+  
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,13 +73,15 @@
       <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <![endif]-->
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="WebsiteDesign.css" />
 </head>
 
-<body>
+<body >
+  
+  
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Restaurant</a>
+      <a class="navbar-brand" href="#">Art Supplies</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +89,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" aria-current="page" href="/">Home</a>
-          <a class="nav-link" href="customers.html">Customers</a>
+          <a class="nav-link" href="data-table.html">Customers</a>
           <a class="nav-link active" href="products.html">Products</a>
         </div>
       </div>
@@ -46,11 +103,11 @@
       <div class="col-2" style="margin-top: 0.5em">
 
 
-        <button type="button" id="clearBtn" class="btn btn-danger" style="float: right; margin-left: 1em">
+        <button type="button" id="clearBtn" class="buttonclear" style="float: right; margin-left: 1em;">
           Clear
         </button>
 
-        <button type="button" class="btn btn-primary" style="float: right" data-bs-toggle="modal"
+        <button type="button" class="buttonadd" style="float: right" data-bs-toggle="modal"
           data-bs-target="#exampleModal">
           + Add
         </button>
@@ -60,7 +117,7 @@
     <table id="data-table" class="table table-bordered table-striped">
       <tfoot>
 
-        <tr><td><td><td><td>Total</td>
+        <tr><td><td><td><td>Total</td >
           <td id="Discount"></td>
           <td id="Gross"></td>
           <td id="AfterDiscount"></td></td></td></td>
@@ -82,13 +139,13 @@
     </table>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">New Product</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h1 class="modal-title fs-5" id="exampleModalLabel" style="background-color: #071d37  ; border-radius: 13px";>Choose Your Supplies</h1>
+          <button type="button" class="btn-close"  data-bs-dismiss="modal" aria-label="Close" ;></button>
         </div>
         <div class="modal-body">
 
@@ -105,7 +162,7 @@
             <label for="ProductName" 
             class="identify">Item</label>
             <input type="text" 
-            class="inputformat" id="ProductName" placeholder="Eletronic Devices" />
+            class="inputformat" id="ProductName" placeholder="Canvas and Brushes" />
           </div>
 
 
@@ -126,11 +183,11 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <button type="button" class="buttonclose" data-bs-dismiss="modal">
             Close
           </button>
 
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="Addition()">
+          <button type="button" class="buttonfill" data-bs-dismiss="modal" onclick="Addition()">
             Add
           </button>
         </div>

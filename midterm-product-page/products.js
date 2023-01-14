@@ -120,7 +120,7 @@ function Addition() {
 
   let dataStr = `<tr id="row${newProductIndex}">
 
-        <td style="width:40px"><img src='image/icondelete.png' class='icon' onclick="deleteProduct(${newProductIndex})"></td>
+        <td style="width:40px"><img src='button.png' class='icon' onclick="deleteProduct(${newProductIndex})"></td>
         <td>${parseFloat(newProduct.Quantity)}</td>
         <td>${newProduct.Item}</td>
         <td>${parseFloat(newProduct.UnitPrice).toFixed(2)}</td>

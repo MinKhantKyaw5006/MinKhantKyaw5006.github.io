@@ -1,19 +1,19 @@
 [
     {
         "QuantityofItem": 2,
-        "ProductName":"S22 Ultra",
+        "ProductName":"Huion Kamvas 24 ultra ",
         "UnitPrice": 47500,
         "Promo": 5000
     },
     {
         "QuantityofItem": 1,
-        "ProductName":"Asus Zenbook Pro",
-        "UnitPrice": 185000,
-        "Promo": 20000
+        "ProductName":"FaberCastel ColorPencil",
+        "UnitPrice": 1850,
+        "Promo": 200
     },
     {
         "QuantityofItem": 4,
-        "ProductName":"Media Fan",
+        "ProductName":"DrawingPad",
         "UnitPrice": 450,
         "Promo": 200
     }

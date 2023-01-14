@@ -1,0 +1,16 @@
+.icon {
+  width: 100%;
+}
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: rgb(221, 239, 254);
+  margin-left: 20px;
+}
+
+.bgimg{
+  background-image: "paint.png" ;
+}
